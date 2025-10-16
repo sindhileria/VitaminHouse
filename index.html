@@ -644,35 +644,43 @@
 </article>
     </section>
     <!-- OYUNLAR & ETKİNLİKLER -->
-    <section id="games" class="section" style="background:linear-gradient(180deg,#fff,#f9f4ec)">
-      <div class="container">
-        <h2 class="title">Oyunlar & Etkinlikler</h2>
-        <p class="subtitle">Okey, iskambil ve tavla masaları gün boyu açık. Turnuva günlerinde ödüller var!</p>
-        <div class="games">
-          <div class="game-card">
-            <div class="game-ico">🀄</div>
-            <div>
-              <h3 style="margin:.2rem 0">Okey Masaları</h3>
-              <small>Rezervasyon önerilir • Turnuva: Çarşamba 19:00</small>
-            </div>
-          </div>
-          <div class="game-card">
-            <div class="game-ico">🃏</div>
-            <div>
-              <h3 style="margin:.2rem 0">İskambil Köşesi</h3>
-              <small>Batak • King • UNO • Poker (eğlence amaçlı)</small>
-            </div>
-          </div>
-          <div class="game-card">
-            <div class="game-ico">🎲</div>
-            <div>
-              <h3 style="margin:.2rem 0">Tavla & Kutulu Oyunlar</h3>
-              <small>Satranç, tabu, scrabble setleri mevcut</small>
-            </div>
-          </div>
-        </div>
+   <section id="games" class="section" style="background:linear-gradient(180deg,#fff,#f9f4ec)">
+  <div class="container">
+    <h2 class="title">Oyunlar & Etkinlikler</h2>
+    <p class="subtitle">Okey, iskambil ve tavla masaları gün boyu açık. Turnuva günlerinde ödüller var!</p>
+
+    <div class="game-gallery" style="
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 24px;
+    ">
+
+      <!-- 🟤 1. Görsel -->
+      <div style="max-width:340px;">
+        <img src="https://raw.githubusercontent.com/sindhileria/VitaminHouse/main/okeymasalari.png" 
+             alt="Okey Masaları"
+             style="width:100%; border-radius:24px; box-shadow:0 6px 16px rgba(0,0,0,0.08);">
       </div>
-    </section>
+
+      <!-- 🟤 2. Görsel -->
+      <div style="max-width:340px;">
+        <img src="https://raw.githubusercontent.com/sindhileria/VitaminHouse/main/iskambil.png" 
+             alt="İskambil Köşesi"
+             style="width:100%; border-radius:24px; box-shadow:0 6px 16px rgba(0,0,0,0.08);">
+      </div>
+
+      <!-- 🟤 3. Görsel -->
+      <div style="max-width:340px;">
+        <img src="https://raw.githubusercontent.com/sindhileria/VitaminHouse/main/tavla.png" 
+             alt="Tavla & Kutulu Oyunlar"
+             style="width:100%; border-radius:24px; box-shadow:0 6px 16px rgba(0,0,0,0.08);">
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- İNDİRİM BANDI -->
     <section id="discounts" class="strip">
@@ -711,14 +719,12 @@
       </div>
     </section>
   </main>
-
   <footer>
     <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
       <small>© <span id="year"></span> Kampüs Kahve • Öğrenci dostu menü ve oyun alanı</small>
       <small><a href="#home" style="color:inherit;text-decoration:none">Yukarı çık ↑</a></small>
     </div>
   </footer>
-
   <script>
     // Yıl
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -730,4 +736,3 @@
   </script>
 </body>
 </html>
-
