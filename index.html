@@ -94,43 +94,70 @@
       .menu-card{grid-column:span 12}
       .games{grid-template-columns:1fr}
     }
-/* === Koyu arka planı görünür yap === */
-html, body {
-  background: linear-gradient(to left, rgba(255,255,255,.06) 0%, #1c1c1c 25%, #121212 100%) !important;
-  color: #f4f4f4;
+/* === Yumuşak koyu arka plan + her yönden sıcak ışık (amber) === */
+:root{
+  --bg-1:#141414;
+  --bg-2:#101010;
+  --bg-3:#151515;
+  --amber: 255, 214, 130;      /* sıcak sarı/amber */
+  --fg:#f3f3f3;
+  --card:#1c1c1c;
+  --card-border:255,255,255;   /* alfa ile kullanılacak */
+}
+
+html, body{
+  /* Çok katmanlı, ultra yumuşak ışık: büyük elipsler + düşük alfa */
+  background:
+    radial-gradient(65vw 60vh at 100% 0%,    rgba(var(--amber), .055), transparent 60%),
+    radial-gradient(70vw 60vh at   0%  0%,   rgba(var(--amber), .045), transparent 62%),
+    radial-gradient(65vw 65vh at 100% 100%,  rgba(var(--amber), .05),  transparent 60%),
+    radial-gradient(70vw 65vh at   0% 100%,  rgba(var(--amber), .04),  transparent 62%),
+    /* çok hafif eksenel dolgu (kontrastı yumuşatır) */
+    linear-gradient(180deg, var(--bg-1), var(--bg-2) 40%, var(--bg-3));
+  color: var(--fg);
   min-height: 100%;
+  background-attachment: fixed; /* hareket ettikçe ışık sabit dursun */
 }
-/* Sağdan çok hafif ışık */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; right: 0;
-  width: 40%;
-  height: 100%;
-  background: radial-gradient(circle at right center, rgba(255,255,255,.08), transparent 70%);
-  pointer-events: none;
-  z-index: 0;
+
+/* Yumuşak vignette: kenarları hafif karart, merkezde ışık hissi kalsın */
+body::after{
+  content:"";
+  position:fixed; inset:0;
+  background:
+    radial-gradient(120vw 95vh at 50% 50%, transparent 58%, rgba(0,0,0,.22) 100%);
+  pointer-events:none;
+  z-index:0;
 }
-/* Bölümler ve barlar kendi açık zeminlerini kapatmasın */
-header,
-.hero,
-.section,
-.strip,
-footer { background: transparent !important; }
-/* Açık renk kutuları koyu yüzeye çevir (okunurluk) */
-.hero-card,
-.menu-card,
-.game-card,
-.card,
-.hours div {
-  background: #1e1e1e !important;
-  border-color: #2a2a2a !important;
-  box-shadow: none !important;
-  color: #f4f4f4 !important;
+/* Bölümlerin zeminini aç, body’deki ışık görünsün */
+header, .hero, .section, .strip, footer { background: transparent !important; }
+
+/* Kartlar: yarı saydam koyu + yumuşak kenar */
+.hero-card, .menu-card, .game-card, .card, .hours div{
+  background: rgba(28,28,28,.66) !important;
+  border: 1px solid rgba(var(--card-border), .06) !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,.28) !important;
+  color: var(--fg) !important;
+  backdrop-filter: blur(2px);
+  transition: box-shadow .25s ease, transform .25s ease;
 }
-/* Küçük rozet ve link renkleri */
-.badge { background:#2a2a2a !important; border-color:#3a3a3a !important; color:#f4f4f4 !important; }
-a { color: #ffd58a; }
+.hero-card:hover, .menu-card:hover, .game-card:hover, .card:hover{
+  box-shadow: 0 10px 36px rgba(0,0,0,.34);
+  transform: translateY(-1px);
+}
+
+/* Rozet/çipler: hafif amber dokunuş */
+.badge, .chip{
+  background: rgba(255, 214, 130, .08) !important;
+  border-color: rgba(255, 214, 130, .18) !important;
+  color: var(--fg) !important;
+}
+/* Link rengi – sıcak & okunaklı */
+a { color: rgba(var(--amber), .9); }
+a:hover { color: rgba(var(--amber), 1); }
+/* Başlıklar biraz daha parlak */
+.title, h1, h2, h3 { color: #fff; }
+.subtitle, p, li   { color: #e9e9e9; }
+
   </style>
 </head>
 <body>  
@@ -760,6 +787,7 @@ referrerpolicy="no-referrer-when-downgrade"></iframe>
   </script>
 </body>
 </html>
+
 
 
 
