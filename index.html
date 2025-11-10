@@ -46,6 +46,69 @@
     nav a:hover{background:var(--cream)}
     .nav-right{display:flex;align-items:center;gap:.5rem}
     .mobile-toggle{display:none;background:transparent;border:none;font-size:1.6rem}
+    <!-- 1) HEADER -->
+<header class="vh-header">
+<div class="vh-nav container" aria-label="Üst menü">
+<button class="vh-toggle" aria-label="Menüyü Aç" onclick="vhOpenDrawer()">☰</button>
+<div class="vh-brand">
+<img src="https://raw.githubusercontent.com/sindhileria/VitaminHouse/main/vitaminhouselogo.png" alt="Vitamin House Logo" class="vh-logo" />
+<div class="vh-brand-name">Vitamin House</div>
+</div>
+</div>
+</header>
+
+
+<!-- 2) ÇEKMECE (DRAWER) -->
+<div class="vh-backdrop" id="vh-backdrop" onclick="vhCloseDrawer()"></div>
+<aside class="vh-drawer" id="vh-drawer" aria-label="Gezinti çekmecesi">
+<div class="vh-drawer-head">
+<strong>Menü</strong>
+<button class="vh-close" aria-label="Kapat" onclick="vhCloseDrawer()">✕</button>
+</div>
+<nav class="vh-drawer-nav">
+<a href="#home" onclick="vhCloseDrawer()">Ana Sayfa</a>
+<a href="#menu" onclick="vhCloseDrawer()">Menü</a>
+<a href="#games" onclick="vhCloseDrawer()">Oyunlar & Etkinlikler</a>
+<a href="#discounts" onclick="vhCloseDrawer()">İndirimler</a>
+<a href="#contact" onclick="vhCloseDrawer()">İletişim</a>
+<a class="vh-btn-ghost" href="#contact" onclick="vhCloseDrawer()">Rezervasyon</a>
+</nav>
+</aside>
+
+
+<!-- 3) CSS -->
+<style>
+/* Temel */
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.vh-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eee}
+.vh-nav{display:flex;align-items:center;justify-content:center;height:64px;position:relative}
+.vh-brand{display:flex;align-items:center;gap:.6rem}
+.vh-logo{width:36px;height:36px;border-radius:10px;object-fit:cover}
+.vh-brand-name{font-family:'Pacifico', cursive; color:#4B2E05; font-size:1.3rem}
+.vh-toggle{display:none;position:absolute;left:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;font-size:1.6rem;cursor:pointer;color:#4B2E05}
+
+
+/* Çekmece */
+.vh-drawer{position:fixed;top:0;bottom:0;left:-280px;width:260px;background:#fff;border-right:1px solid #eee;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:16px;z-index:60;transition:left .25s ease;display:flex;flex-direction:column}
+.vh-drawer.vh-open{left:0}
+.vh-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.vh-close{background:transparent;border:0;font-size:1.2rem;cursor:pointer}
+.vh-drawer-nav{display:flex;flex-direction:column;gap:6px}
+.vh-drawer-nav a{padding:.7rem .5rem;border-radius:10px;color:#4B2E05;text-decoration:none;font-weight:600}
+.vh-drawer-nav a:hover{background:#F4E9D8}
+.vh-btn-ghost{margin-top:8px;border:2px solid #4B2E05;border-radius:12px;text-align:center}
+
+
+.vh-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:55}
+.vh-backdrop.vh-show{opacity:1;pointer-events:auto}
+
+
+/* Sadece mobil: 768px ve altı */
+@media (max-width:768px){
+/* Sitede mevcut başka nav/linkler varsa gizle (mobilde sadece başlık kalsın) */
+nav ul, .nav ul, .site-nav, .main-nav, .header-links{display:none !important}
+.vh-toggle{display:block}
+}
 
     /* Hero */
     .hero{background:linear-gradient(120deg, #f9f4ec, #fff);}
@@ -742,6 +805,7 @@ referrerpolicy="no-referrer-when-downgrade"></iframe>
   </script>
 </body>
 </html>
+
 
 
 
