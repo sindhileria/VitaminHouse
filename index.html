@@ -62,13 +62,12 @@ body.vh-lock{overflow:hidden}
     .subtitle{opacity:.8;margin:0 0 1.25rem}
 
     /* Header */
-  <header class="vh-header">
+ <header class="vh-header">
   <div class="vh-nav container" aria-label="Üst menü">
     <button id="vh-toggle" class="vh-toggle" aria-label="Menüyü Aç">☰</button>
     <div class="vh-brand-name">Vitamin House</div>
   </div>
 </header>
-
 <!-- Çekmece ve arkaplan -->
 <div class="vh-backdrop" id="vh-backdrop"></div>
 <aside class="vh-drawer" id="vh-drawer" aria-label="Gezinti çekmecesi">
@@ -84,7 +83,6 @@ body.vh-lock{overflow:hidden}
     <a href="#contact">İletişim</a>
   </nav>
 </aside>
-
 /* Temel */
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
 .vh-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eee}
@@ -197,6 +195,34 @@ body.vh-lock{overflow:hidden}
       .games{grid-template-columns:1fr}
     }
   </style>
+<!-- Mobil başlık + çekmece CSS (yeni blok) -->
+<style>
+/* ===== Mobil başlık + çekmece ===== */
+.vh-header{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eee}
+.vh-nav{display:flex;align-items:center;justify-content:center;height:64px;position:relative}
+.vh-brand-name{font-family:'Pacifico',cursive;font-weight:400;color:#4B2E05;font-size:1.35rem;white-space:nowrap}
+.vh-toggle{display:none;position:absolute;left:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;font-size:1.6rem;cursor:pointer;color:#4B2E05;z-index:1000}
+
+/* Çekmece */
+.vh-drawer{position:fixed;top:0;bottom:0;left:-280px;width:260px;background:#fff;border-right:1px solid #eee;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:16px;z-index:1100;transition:left .25s ease;display:flex;flex-direction:column}
+.vh-drawer.vh-open{left:0}
+.vh-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.vh-close{background:transparent;border:0;font-size:1.2rem;cursor:pointer}
+.vh-drawer-nav{display:flex;flex-direction:column;gap:6px}
+.vh-drawer-nav a{padding:.7rem .5rem;border-radius:10px;color:#4B2E05;text-decoration:none;font-weight:600}
+.vh-drawer-nav a:hover{background:#F4E9D8}
+.vh-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1050}
+.vh-backdrop.vh-show{opacity:1;pointer-events:auto}
+
+/* Arka plan kaymasın */
+body.vh-lock{overflow:hidden}
+
+/* Sadece mobil */
+@media (max-width:768px){
+  nav ul, .nav ul, .site-nav, .main-nav, .header-links{display:none !important}
+  .vh-toggle{display:block}
+}
+</style>
 </head>
 <body>
   <header>
@@ -892,6 +918,7 @@ window.addEventListener('keydown', e=>{ if(e.key==='Escape') vhCloseDrawer(); })
 </script>
 </body>
 </html>
+
 
 
 
