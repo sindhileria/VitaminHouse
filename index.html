@@ -78,10 +78,8 @@
     .card{background:#fff;border:1px solid #eee;border-radius:16px;padding:16px}
     .hours-table{width:100%;border-collapse:separate;border-spacing:0 6px}
     .hours-table td{background:#faf7f0;padding:10px 12px;border-radius:10px}
-
     /* Footer */
     footer{padding:32px 0;border-top:1px solid #eee;background:#fcfbf7;color:#6f665a}
-
     /* Responsive */
     @media(max-width:980px){
       .hero-wrap{grid-template-columns:1fr}
@@ -96,52 +94,43 @@
       .menu-card{grid-column:span 12}
       .games{grid-template-columns:1fr}
     }
-    /* === Vitamin House hizalama düzeltmesi === */
-.nav {
-  display: flex;
-  align-items: center;
-.brand-name {
-  display: block;
-  width: 100%;           /* Tam genişlik boyunca yayılır */
-  text-align: center;    /* Yazı ortalanır */
-  font-family: 'Pacifico', cursive;
-  font-size: 1.5rem;
-  color: #4B2E05;
-  letter-spacing: 1px;   /* biraz aralık */
-}
-  /* === Koyu gri arka plan + sağdan hafif ışık === */
+/* === Koyu arka planı görünür yap === */
 html, body {
-  background: linear-gradient(
-    to left,
-    rgba(255,255,255,0.06) 0%,
-    #1c1c1c 25%,
-    #121212 100%
-  ) !important;           /* üstüne yaz */
+  background: linear-gradient(to left, rgba(255,255,255,.06) 0%, #1c1c1c 25%, #121212 100%) !important;
   color: #f4f4f4;
   min-height: 100%;
 }
-/* Sağdan yumuşak ışık vuruşu */
-body::before{
-  content:"";
+/* Sağdan çok hafif ışık */
+body::before {
+  content: "";
   position: fixed;
-  top:0; right:0;
-  width:40%;
-  height:100%;
-  background: radial-gradient(circle at right center,
-              rgba(255,255,255,0.08), transparent 70%);
-  pointer-events:none;
-  z-index:0;
+  top: 0; right: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(circle at right center, rgba(255,255,255,.08), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
-
-/* Bölümlerin kendi arka planlarını kapat (body görünsün) */
+/* Bölümler ve barlar kendi açık zeminlerini kapatmasın */
+header,
 .hero,
 .section,
-header,
-footer {
-  background: transparent !important;
+.strip,
+footer { background: transparent !important; }
+/* Açık renk kutuları koyu yüzeye çevir (okunurluk) */
+.hero-card,
+.menu-card,
+.game-card,
+.card,
+.hours div {
+  background: #1e1e1e !important;
+  border-color: #2a2a2a !important;
+  box-shadow: none !important;
+  color: #f4f4f4 !important;
 }
-/* Kutuların yazısı koyu arka planda okunaklı olsun */
-.title, .subtitle, h1, h2, h3, p, li, a { color: #f4f4f4; }
+/* Küçük rozet ve link renkleri */
+.badge { background:#2a2a2a !important; border-color:#3a3a3a !important; color:#f4f4f4 !important; }
+a { color: #ffd58a; }
   </style>
 </head>
 <body>  
@@ -771,6 +760,7 @@ referrerpolicy="no-referrer-when-downgrade"></iframe>
   </script>
 </body>
 </html>
+
 
 
 
