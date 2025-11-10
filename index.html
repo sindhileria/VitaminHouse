@@ -96,18 +96,32 @@
       .menu-card{grid-column:span 12}
       .games{grid-template-columns:1fr}
     }
+    /* === Vitamin House hizalama düzeltmesi === */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* yazı ve buton arası boşluk */
+}
+.brand-name {
+  flex: 1;               /* ortadaki yazı alanı esnek olsun */
+  text-align: center;    /* ortala */
+  font-family: 'Pacifico', cursive;
+  font-size: 1.4rem;
+  color: #4B2E05;
+}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="brand-name">Vitamin House</div>
-      </div>
-      <nav>
-        <button class="mobile-toggle" aria-label="Menüyü Aç/Kapat" onclick="toggleMenu()">☰</button>
-      </nav>
-  </header>
+ <header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="brand-name">Vitamin House</div>
+    </div>
+    <nav>
+      <button class="mobile-toggle" aria-label="Menüyü Aç/Kapat" onclick="toggleMenu()">☰</button>
+    </nav>
+  </div>
+</header>
   <main>
     <!-- HERO -->
     <section id="home" class="hero section">
@@ -133,7 +147,6 @@
         </div>
       </div>
     </section>
-
     <!-- MENÜ -->
     <section id="menu" class="section" style="background:#fff">
       <div class="container">
@@ -729,3 +742,4 @@ referrerpolicy="no-referrer-when-downgrade"></iframe>
   </script>
 </body>
 </html>
+
