@@ -94,70 +94,55 @@
       .menu-card{grid-column:span 12}
       .games{grid-template-columns:1fr}
     }
-/* === Yumuşak koyu arka plan + her yönden sıcak ışık (amber) === */
-:root{
-  --bg-1:#141414;
-  --bg-2:#101010;
-  --bg-3:#151515;
-  --amber: 255, 214, 130;      /* sıcak sarı/amber */
-  --fg:#f3f3f3;
-  --card:#1c1c1c;
-  --card-border:255,255,255;   /* alfa ile kullanılacak */
+    /* === Yumuşak koyu arka plan + sıcak sarı ışık efekti (görünür ama yumuşak) === */
+:root {
+  --amber: 255, 208, 120; /* sıcak sarı ışık tonu */
+  --dark1: #0f0f0f;
+  --dark2: #141414;
+  --dark3: #1b1b1b;
 }
-
-html, body{
-  /* Çok katmanlı, ultra yumuşak ışık: büyük elipsler + düşük alfa */
+/* Ana zemin */
+html, body {
   background:
-    radial-gradient(65vw 60vh at 100% 0%,    rgba(var(--amber), .055), transparent 60%),
-    radial-gradient(70vw 60vh at   0%  0%,   rgba(var(--amber), .045), transparent 62%),
-    radial-gradient(65vw 65vh at 100% 100%,  rgba(var(--amber), .05),  transparent 60%),
-    radial-gradient(70vw 65vh at   0% 100%,  rgba(var(--amber), .04),  transparent 62%),
-    /* çok hafif eksenel dolgu (kontrastı yumuşatır) */
-    linear-gradient(180deg, var(--bg-1), var(--bg-2) 40%, var(--bg-3));
-  color: var(--fg);
-  min-height: 100%;
-  background-attachment: fixed; /* hareket ettikçe ışık sabit dursun */
+    radial-gradient(80vw 60vh at 90% 10%, rgba(var(--amber), 0.08), transparent 70%),
+    radial-gradient(80vw 60vh at 10% 90%, rgba(var(--amber), 0.07), transparent 70%),
+    radial-gradient(90vw 80vh at 50% 0%,  rgba(var(--amber), 0.06), transparent 75%),
+    radial-gradient(90vw 80vh at 50% 100%, rgba(var(--amber), 0.06), transparent 75%),
+    linear-gradient(180deg, var(--dark1) 0%, var(--dark2) 40%, var(--dark3) 100%);
+  background-attachment: fixed;
+  color: #f4f4f4;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
-
-/* Yumuşak vignette: kenarları hafif karart, merkezde ışık hissi kalsın */
-body::after{
-  content:"";
-  position:fixed; inset:0;
+/* Işığın hissedilmesi için kenarlarda çok hafif parıltı */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
   background:
-    radial-gradient(120vw 95vh at 50% 50%, transparent 58%, rgba(0,0,0,.22) 100%);
-  pointer-events:none;
-  z-index:0;
+    radial-gradient(100vw 100vh at 80% 20%, rgba(var(--amber), 0.12), transparent 70%),
+    radial-gradient(100vw 100vh at 20% 80%, rgba(var(--amber), 0.10), transparent 70%);
+  mix-blend-mode: screen; /* parlak hissi */
+  pointer-events: none;
+  z-index: -1;
 }
-/* Bölümlerin zeminini aç, body’deki ışık görünsün */
-header, .hero, .section, .strip, footer { background: transparent !important; }
-
-/* Kartlar: yarı saydam koyu + yumuşak kenar */
-.hero-card, .menu-card, .game-card, .card, .hours div{
-  background: rgba(28,28,28,.66) !important;
-  border: 1px solid rgba(var(--card-border), .06) !important;
-  box-shadow: 0 8px 30px rgba(0,0,0,.28) !important;
-  color: var(--fg) !important;
-  backdrop-filter: blur(2px);
-  transition: box-shadow .25s ease, transform .25s ease;
+/* Bölümler ışığı kapatmasın */
+header, .hero, .section, .strip, footer {
+  background: transparent !important;
 }
-.hero-card:hover, .menu-card:hover, .game-card:hover, .card:hover{
-  box-shadow: 0 10px 36px rgba(0,0,0,.34);
-  transform: translateY(-1px);
+/* Kartlar: mat siyah + hafif amber yansıma */
+.hero-card, .menu-card, .game-card, .card, .hours div {
+  background: rgba(18,18,18,0.85) !important;
+  border: 1px solid rgba(255,255,255,0.05) !important;
+  box-shadow: 0 4px 18px rgba(var(--amber), 0.08), 0 2px 6px rgba(0,0,0,0.4) !important;
+  backdrop-filter: blur(3px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-
-/* Rozet/çipler: hafif amber dokunuş */
-.badge, .chip{
-  background: rgba(255, 214, 130, .08) !important;
-  border-color: rgba(255, 214, 130, .18) !important;
-  color: var(--fg) !important;
+.hero-card:hover, .menu-card:hover, .game-card:hover, .card:hover {
+  box-shadow: 0 8px 28px rgba(var(--amber), 0.15), 0 4px 12px rgba(0,0,0,0.45);
+  transform: translateY(-2px);
 }
-/* Link rengi – sıcak & okunaklı */
-a { color: rgba(var(--amber), .9); }
-a:hover { color: rgba(var(--amber), 1); }
-/* Başlıklar biraz daha parlak */
-.title, h1, h2, h3 { color: #fff; }
-.subtitle, p, li   { color: #e9e9e9; }
-
   </style>
 </head>
 <body>  
