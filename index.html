@@ -803,8 +803,16 @@ referrerpolicy="no-referrer-when-downgrade"></iframe>
       links.classList.toggle('open');
     }
   </script>
+        <script>
+const vhDrawer = document.getElementById('vh-drawer');
+const vhBackdrop = document.getElementById('vh-backdrop');
+function vhOpenDrawer(){ vhDrawer.classList.add('vh-open'); vhBackdrop.classList.add('vh-show'); }
+function vhCloseDrawer(){ vhDrawer.classList.remove('vh-open'); vhBackdrop.classList.remove('vh-show'); }
+window.addEventListener('keydown', e=>{ if(e.key==='Escape') vhCloseDrawer(); });
+</script>
 </body>
 </html>
+
 
 
 
