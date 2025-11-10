@@ -109,17 +109,39 @@
   color: #4B2E05;
   letter-spacing: 1px;   /* biraz aralık */
 }
-    body {
+  /* === Koyu gri arka plan + sağdan hafif ışık === */
+html, body {
   background: linear-gradient(
-    to left,             /* ışık sağdan vurduğu için yön sola */
-    rgba(255, 255, 255, 0.08) 0%,   /* sağ kenarda çok hafif aydınlık */
-    #1c1c1c 25%,                    /* koyu gri ana ton */
-    #121212 100%                    /* daha koyu sol taraf */
-  );
-  color: #f4f4f4;           /* metin rengini açık tut */
-  font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
+    to left,
+    rgba(255,255,255,0.06) 0%,
+    #1c1c1c 25%,
+    #121212 100%
+  ) !important;           /* üstüne yaz */
+  color: #f4f4f4;
+  min-height: 100%;
 }
+/* Sağdan yumuşak ışık vuruşu */
+body::before{
+  content:"";
+  position: fixed;
+  top:0; right:0;
+  width:40%;
+  height:100%;
+  background: radial-gradient(circle at right center,
+              rgba(255,255,255,0.08), transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Bölümlerin kendi arka planlarını kapat (body görünsün) */
+.hero,
+.section,
+header,
+footer {
+  background: transparent !important;
+}
+/* Kutuların yazısı koyu arka planda okunaklı olsun */
+.title, .subtitle, h1, h2, h3, p, li, a { color: #f4f4f4; }
   </style>
 </head>
 <body>  
@@ -749,6 +771,7 @@ referrerpolicy="no-referrer-when-downgrade"></iframe>
   </script>
 </body>
 </html>
+
 
 
 
