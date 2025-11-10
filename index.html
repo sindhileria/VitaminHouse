@@ -10,32 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ===== Mobil başlık + çekmece ===== */
-.vh-header{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eee}
-.vh-nav{display:flex;align-items:center;justify-content:center;height:64px;position:relative}
-.vh-brand-name{font-family:'Pacifico', cursive; font-weight:400; color:#4B2E05; font-size:1.35rem; white-space:nowrap}
-.vh-toggle{display:none;position:absolute;left:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;font-size:1.6rem;cursor:pointer;color:#4B2E05;z-index:1000}
-
-/* Çekmece */
-.vh-drawer{position:fixed;top:0;bottom:0;left:-280px;width:260px;background:#fff;border-right:1px solid #eee;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:16px;z-index:1100;transition:left .25s ease;display:flex;flex-direction:column}
-.vh-drawer.vh-open{left:0}
-.vh-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.vh-close{background:transparent;border:0;font-size:1.2rem;cursor:pointer}
-.vh-drawer-nav{display:flex;flex-direction:column;gap:6px}
-.vh-drawer-nav a{padding:.7rem .5rem;border-radius:10px;color:#4B2E05;text-decoration:none;font-weight:600}
-.vh-drawer-nav a:hover{background:#F4E9D8}
-.vh-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1050}
-.vh-backdrop.vh-show{opacity:1;pointer-events:auto}
-
-/* Arkaplan kaymasını kilitle */
-body.vh-lock{overflow:hidden}
-
-/* Sadece mobil (768px ve altı) */
-@media (max-width:768px){
-  /* Sitede varsa eski nav/link şeritlerini gizle */
-  nav ul, .nav ul, .site-nav, .main-nav, .header-links{display:none !important}
-  .vh-toggle{display:block}
-}
     :root{
       --coffee:#4B2E05; /* koyu kahve */
       --cream:#F4E9D8;  /* krem */
@@ -62,88 +36,16 @@ body.vh-lock{overflow:hidden}
     .subtitle{opacity:.8;margin:0 0 1.25rem}
 
     /* Header */
- <header class="vh-header">
-  <div class="vh-nav container" aria-label="Üst menü">
-    <button id="vh-toggle" class="vh-toggle" aria-label="Menüyü Aç">☰</button>
-    <div class="vh-brand-name">Vitamin House</div>
-  </div>
-</header>
-<!-- Çekmece ve arkaplan -->
-<div class="vh-backdrop" id="vh-backdrop"></div>
-<aside class="vh-drawer" id="vh-drawer" aria-label="Gezinti çekmecesi">
-  <div class="vh-drawer-head">
-    <strong>Menü</strong>
-    <button class="vh-close" id="vh-close" aria-label="Kapat">✕</button>
-  </div>
-  <nav class="vh-drawer-nav">
-    <a href="#home">Ana Sayfa</a>
-    <a href="#menu">Menü</a>
-    <a href="#games">Oyunlar & Etkinlikler</a>
-    <a href="#discounts">İndirimler</a>
-    <a href="#contact">İletişim</a>
-  </nav>
-</aside>
-/* Temel */
-.container{max-width:1100px;margin:0 auto;padding:0 20px}
-.vh-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eee}
-.vh-nav{display:flex;align-items:center;justify-content:center;height:64px;position:relative}
-.vh-brand{display:flex;align-items:center;gap:.6rem}
-.vh-logo{width:36px;height:36px;border-radius:10px;object-fit:cover}
-.vh-brand-name{font-family:'Pacifico', cursive; color:#4B2E05; font-size:1.3rem}
-.vh-toggle{display:none;position:absolute;left:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;font-size:1.6rem;cursor:pointer;color:#4B2E05}
-
-
-/* Çekmece */
-.vh-drawer{position:fixed;top:0;bottom:0;left:-280px;width:260px;background:#fff;border-right:1px solid #eee;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:16px;z-index:60;transition:left .25s ease;display:flex;flex-direction:column}
-.vh-drawer.vh-open{left:0}
-.vh-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.vh-close{background:transparent;border:0;font-size:1.2rem;cursor:pointer}
-.vh-drawer-nav{display:flex;flex-direction:column;gap:6px}
-.vh-drawer-nav a{padding:.7rem .5rem;border-radius:10px;color:#4B2E05;text-decoration:none;font-weight:600}
-.vh-drawer-nav a:hover{background:#F4E9D8}
-.vh-btn-ghost{margin-top:8px;border:2px solid #4B2E05;border-radius:12px;text-align:center}
-
-
-.vh-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:55}
-.vh-backdrop.vh-show{opacity:1;pointer-events:auto}
-
-
-/* Sadece mobil: 768px ve altı */
-@media (max-width:768px){
-/* Sitede mevcut başka nav/linkler varsa gizle (mobilde sadece başlık kalsın) */
-nav ul, .nav ul, .site-nav, .main-nav, .header-links{display:none !important}
-.vh-toggle{display:block}
-}
-    /* ===== Mobil başlık + çekmece ===== */
-.vh-header{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eee}
-.vh-nav{display:flex;align-items:center;justify-content:center;height:64px;position:relative}
-.vh-brand{display:flex;align-items:center;gap:.6rem}
-.vh-logo{width:36px;height:36px;border-radius:10px;object-fit:cover}
-.vh-brand-name{font-family:'Pacifico',cursive;color:#4B2E05;font-size:1.3rem}
-.vh-toggle{display:none;position:absolute;left:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;font-size:1.6rem;cursor:pointer;color:#4B2E05;z-index:1000}
-
-/* Çekmece */
-.vh-drawer{position:fixed;top:0;bottom:0;left:-280px;width:260px;background:#fff;border-right:1px solid #eee;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:16px;z-index:1100;transition:left .25s ease;display:flex;flex-direction:column}
-.vh-drawer.vh-open{left:0}
-.vh-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.vh-close{background:transparent;border:0;font-size:1.2rem;cursor:pointer}
-.vh-drawer-nav{display:flex;flex-direction:column;gap:6px}
-.vh-drawer-nav a{padding:.7rem .5rem;border-radius:10px;color:#4B2E05;text-decoration:none;font-weight:600}
-.vh-drawer-nav a:hover{background:#F4E9D8}
-.vh-btn-ghost{margin-top:8px;border:2px solid #4B2E05;border-radius:12px;text-align:center}
-.vh-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1050}
-.vh-backdrop.vh-show{opacity:1;pointer-events:auto}
-
-/* Arkaplan kaymasını kilitle */
-body.vh-lock{overflow:hidden}
-
-/* Sadece mobil (768px ve altı) */
-@media (max-width:768px){
-  /* Sende mevcut başka navlar varsa gizle (mobilde sadece başlık kalsın) */
-  nav ul, .nav ul, .site-nav, .main-nav, .header-links{display:none !important}
-  .vh-toggle{display:block}
-}
-
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eee}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand-logo{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 0deg,var(--accent),var(--coffee));display:grid;place-items:center;color:#fff;font-weight:800}
+    .brand-name{font-family:'Pacifico', cursive;color:var(--coffee);font-size:1.3rem}
+    nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+    nav a{color:var(--coffee);text-decoration:none;font-weight:600;padding:.4rem .6rem;border-radius:10px}
+    nav a:hover{background:var(--cream)}
+    .nav-right{display:flex;align-items:center;gap:.5rem}
+    .mobile-toggle{display:none;background:transparent;border:none;font-size:1.6rem}
 
     /* Hero */
     .hero{background:linear-gradient(120deg, #f9f4ec, #fff);}
@@ -195,34 +97,6 @@ body.vh-lock{overflow:hidden}
       .games{grid-template-columns:1fr}
     }
   </style>
-<!-- Mobil başlık + çekmece CSS (yeni blok) -->
-<style>
-/* ===== Mobil başlık + çekmece ===== */
-.vh-header{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eee}
-.vh-nav{display:flex;align-items:center;justify-content:center;height:64px;position:relative}
-.vh-brand-name{font-family:'Pacifico',cursive;font-weight:400;color:#4B2E05;font-size:1.35rem;white-space:nowrap}
-.vh-toggle{display:none;position:absolute;left:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;font-size:1.6rem;cursor:pointer;color:#4B2E05;z-index:1000}
-
-/* Çekmece */
-.vh-drawer{position:fixed;top:0;bottom:0;left:-280px;width:260px;background:#fff;border-right:1px solid #eee;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:16px;z-index:1100;transition:left .25s ease;display:flex;flex-direction:column}
-.vh-drawer.vh-open{left:0}
-.vh-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.vh-close{background:transparent;border:0;font-size:1.2rem;cursor:pointer}
-.vh-drawer-nav{display:flex;flex-direction:column;gap:6px}
-.vh-drawer-nav a{padding:.7rem .5rem;border-radius:10px;color:#4B2E05;text-decoration:none;font-weight:600}
-.vh-drawer-nav a:hover{background:#F4E9D8}
-.vh-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1050}
-.vh-backdrop.vh-show{opacity:1;pointer-events:auto}
-
-/* Arka plan kaymasın */
-body.vh-lock{overflow:hidden}
-
-/* Sadece mobil */
-@media (max-width:768px){
-  nav ul, .nav ul, .site-nav, .main-nav, .header-links{display:none !important}
-  .vh-toggle{display:block}
-}
-</style>
 </head>
 <body>
   <header>
@@ -866,72 +740,5 @@ referrerpolicy="no-referrer-when-downgrade"></iframe>
       links.classList.toggle('open');
     }
   </script>
-        <script>
-const vhDrawer = document.getElementById('vh-drawer');
-const vhBackdrop = document.getElementById('vh-backdrop');
-function vhOpenDrawer(){ vhDrawer.classList.add('vh-open'); vhBackdrop.classList.add('vh-show'); }
-function vhCloseDrawer(){ vhDrawer.classList.remove('vh-open'); vhBackdrop.classList.remove('vh-show'); }
-window.addEventListener('keydown', e=>{ if(e.key==='Escape') vhCloseDrawer(); });
-</script>
-        <script>
-  (function(){
-    const drawer   = document.getElementById('vh-drawer');
-    const backdrop = document.getElementById('vh-backdrop');
-    window.vhOpenDrawer = function(){
-      drawer.classList.add('vh-open');
-      backdrop.classList.add('vh-show');
-      document.body.classList.add('vh-lock');
-    };
-    window.vhCloseDrawer = function(){
-      drawer.classList.remove('vh-open');
-      backdrop.classList.remove('vh-show');
-      document.body.classList.remove('vh-lock');
-    };
-
-    // ESC ile kapat
-    window.addEventListener('keydown', e => { if(e.key === 'Escape') window.vhCloseDrawer(); });
-  })();
-</script>
-        <script>
-  document.addEventListener('DOMContentLoaded', function(){
-    const toggle   = document.getElementById('vh-toggle');
-    const drawer   = document.getElementById('vh-drawer');
-    const backdrop = document.getElementById('vh-backdrop');
-    const closeBtn = document.getElementById('vh-close');
-
-    function openDrawer(){
-      drawer.classList.add('vh-open');
-      backdrop.classList.add('vh-show');
-      document.body.classList.add('vh-lock');
-    }
-    function closeDrawer(){
-      drawer.classList.remove('vh-open');
-      backdrop.classList.remove('vh-show');
-      document.body.classList.remove('vh-lock');
-    }
-
-    toggle.addEventListener('click', openDrawer);
-    backdrop.addEventListener('click', closeDrawer);
-    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-    window.addEventListener('keydown', e => { if(e.key === 'Escape') closeDrawer(); });
-  });
-</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
